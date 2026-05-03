@@ -1,4 +1,4 @@
-# JH Task Manager 
+# JH Task Manager - TaskFlow
 
 A full-stack task management system built with **Node.js + Express** backend and **React** frontend, featuring a modern glassmorphism UI, real-time statistics, and smooth animations.
 
@@ -25,25 +25,27 @@ A full-stack task management system built with **Node.js + Express** backend and
 
 ### Core Features
 
-- **Create Tasks** - Add new tasks via a clean form interface
-- **Read Tasks** - Display all tasks sorted by creation date (newest first)
-- **Update Tasks** - Toggle task status (Done/Pending) with live UI updates
-- **Delete Tasks** - Remove tasks instantly with visual feedback
-- **Task Filtering** - Filter tasks by status (All, Done, Pending)
-- **Loading Indicators** - Smooth loading states for better UX
-- **Real-time Stats** - Live counters for total, completed, and pending tasks
-- **Progress Bar** - Dynamic progress bar showing completion percentage
+| Feature | Description |
+|---------|-------------|
+| **Create Tasks** | Add new tasks via a clean form interface |
+| **Read Tasks** | Display all tasks sorted by creation date (newest first) |
+| **Update Tasks** | Toggle task status (Done/Pending) with live UI updates |
+| **Delete Tasks** | Remove tasks instantly with visual feedback |
+| **Task Filtering** | Filter tasks by status (All, Done, Pending) |
+| **Loading Indicators** | Smooth loading states for better UX |
+| **Real-time Stats** | Live counters for total, completed, and pending tasks |
+| **Progress Bar** | Dynamic progress bar showing completion percentage |
 
 ### Technical Highlights
 
-- RESTful API with proper HTTP status codes
-- SQLite3 database (lightweight, file-based, no server setup)
-- CORS-enabled for cross-origin requests
-- React hooks for state management (useState, useEffect)
-- Modern Glassmorphism UI design with animated gradient background
-- Input validation on both frontend and backend
-- Error handling with toast notifications
-- Responsive design (mobile + desktop)
+- **RESTful API** with proper HTTP status codes
+- **SQLite3** database (lightweight, file-based, no server setup)
+- **CORS-enabled** for cross-origin requests
+- **React hooks** for state management (useState, useEffect)
+- **Glassmorphism** UI design with animated gradient background
+- **Input validation** on both frontend and backend
+- **Error handling** with toast notifications
+- **Responsive design** (mobile + desktop)
 
 ---
 
@@ -53,26 +55,27 @@ A full-stack task management system built with **Node.js + Express** backend and
 
 | Technology | Purpose |
 |------------|---------|
-| Node.js | JavaScript runtime environment |
-| Express.js | Web framework for building RESTful APIs |
-| SQLite3 | Lightweight file-based database |
-| sqlite | Async/await wrapper for SQLite |
-| cors | Cross-origin resource sharing |
-| dotenv | Environment variable management |
-| nodemon | Auto-restart during development |
+| **Node.js** | JavaScript runtime environment |
+| **Express.js** | Web framework for building RESTful APIs |
+| **SQLite3** | Lightweight file-based database |
+| **sqlite** | Async/await wrapper for SQLite |
+| **cors** | Cross-origin resource sharing |
+| **dotenv** | Environment variable management |
+| **nodemon** | Auto-restart during development |
 
 ### Frontend
 
 | Technology | Purpose |
 |------------|---------|
-| React 18 | UI library for building the interface |
-| CSS3 | Styling with flexbox, grid, glassmorphism, and animations |
-| Fetch API | HTTP requests to the backend |
+| **React 18** | UI library for building the interface |
+| **CSS3** | Styling with flexbox, grid, glassmorphism, and animations |
+| **Fetch API** | HTTP requests to the backend |
 
 ---
-## Project Structure
 
+## Project Structure
 JH-Task-Manager/
+│
 ├── backend/
 │ ├── src/
 │ │ ├── controllers/
@@ -101,6 +104,7 @@ JH-Task-Manager/
 │
 └── README.md
 
+text
 
 ---
 
@@ -110,9 +114,9 @@ Before running the project, ensure you have:
 
 | Requirement | Version | Download Link |
 |-------------|---------|---------------|
-| Node.js | v14 or higher | nodejs.org |
-| npm | Comes with Node.js | - |
-| Git | Latest | git-scm.com |
+| **Node.js** | v14 or higher | nodejs.org |
+| **npm** | Comes with Node.js | - |
+| **Git** | Latest | git-scm.com |
 
 > Note: No MongoDB, MySQL, or external database setup needed. SQLite creates the database file automatically on first run.
 
@@ -125,30 +129,48 @@ Before running the project, ensure you have:
 ```bash
 git clone https://github.com/thawra332/task-manager.git
 cd task-manager
-
-**Backend Setup**
+2. Backend Setup
 Open a terminal and navigate to the backend directory:
+
+bash
 cd backend
 Install dependencies:
+
+bash
 npm install
 Create a .env file in the backend directory:
+
+env
 PORT=5000
 Start the backend server:
-npm run dev # Development mode (with auto-reload)
+
+bash
+# Development mode (with auto-reload)
+npm run dev
+
+# Production mode
 npm start
 The backend will run at: http://localhost:5000
-**Note:** The database.sqlite file will be created automatically in the backend folder on first run.
-**Frontend Setup**
+
+Note: The database.sqlite file will be created automatically in the backend folder on first run.
+
+3. Frontend Setup
 Open a new terminal (keep the backend running), then navigate to the frontend directory:
+
+bash
 cd frontend
 Install dependencies:
+
+bash
 npm install
 Start the React development server:
+
+bash
 npm start
 The frontend will open automatically at: http://localhost:3000
-**NOTE**: Backend runs on port 5000, Frontend runs on port 3000.
 
----
+Important: Backend runs on port 5000, Frontend runs on port 3000.
+
 API Endpoints
 Base URL: http://localhost:5000/api
 
@@ -157,9 +179,9 @@ GET	/tasks	Get all tasks	-	Array of task objects
 POST	/tasks	Create a new task	{ "title": "string" }	Created task object
 PUT	/tasks/:id/status	Update task status	{ "status": "pending" or "done" }	Success message
 DELETE	/tasks/:id	Delete a task	-	Success message
-
-**Example Response (GET /tasks)
-**[
+Example Response (GET /tasks)
+json
+[
   {
     "id": 1,
     "title": "Complete project documentation",
@@ -173,20 +195,20 @@ DELETE	/tasks/:id	Delete a task	-	Success message
     "created_at": "2026-05-02 15:20:00"
   }
 ]
-
-**Example Request (POST /tasks)**
+Example Request (POST /tasks)
+json
 {
   "title": "Build the frontend UI"
 }
-
-**Example Request (PUT /tasks/1/status)**
+Example Request (PUT /tasks/1/status)
+json
 {
   "status": "done"
 }
+Frontend-Backend Integration
+The frontend communicates with the backend using the Fetch API (configured in App.js):
 
----
-**Frontend-Backend Integration
-**The frontend communicates with the backend using the Fetch API (configured in App.js):
+javascript
 const API_URL = 'http://localhost:5000/api';
 
 // Get all tasks
@@ -209,9 +231,6 @@ await fetch(`${API_URL}/tasks/${id}/status`, {
 
 // Delete a task
 await fetch(`${API_URL}/tasks/${id}`, { method: 'DELETE' });
-
----
-
 UI Design Highlights
 Design Element	Implementation
 Background	Animated dark navy gradient with soft blue/purple glow effects
@@ -355,21 +374,18 @@ Ensure frontend is making requests to http://localhost:5000
 
 Check that no other service is blocking port 5000
 
----
+Environment Variables
+Create .env in the backend/ folder:
 
-**Environment Variables
-**Create .env in the backend/ folder:
+env
 PORT=5000
-**Note**: No database credentials needed. SQLite is file-based and requires no connection string.
+Note: No database credentials needed. SQLite is file-based and requires no connection string.
 
----
-**Responsive Design
-**Screen Size	Layout
-Desktop (>1200px)	3-column stats grid, horizontal form layout, side-by-side buttons
+Responsive Design
+Screen Size	Layout
+Desktop (1200px)	3-column stats grid, horizontal form layout, side-by-side buttons
 Tablet (768px-1200px)	3-column stats grid with adjusted spacing
 Mobile (<768px)	1-column stats grid, vertical form layout, stacked task cards
-
----
 Developer Notes
 This project demonstrates:
 
@@ -399,20 +415,5 @@ SQLite for the lightweight, zero-config database solution
 License
 ISC License - Open source
 
-Author: thawra332 - JH Team Candidate
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Project Structure
+Author
+thawra332 - JH Team Candidate
