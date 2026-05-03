@@ -114,11 +114,11 @@ Before running the project, ensure you have:
 
 | Requirement | Version | Download Link |
 |-------------|---------|---------------|
-| **Node.js** | v14 or higher | nodejs.org |
+| **Node.js** | v14 or higher | [nodejs.org](https://nodejs.org/) |
 | **npm** | Comes with Node.js | - |
-| **Git** | Latest | git-scm.com |
+| **Git** | Latest | [git-scm.com](https://git-scm.com/) |
 
-> Note: No MongoDB, MySQL, or external database setup needed. SQLite creates the database file automatically on first run.
+> **Note:** No MongoDB, MySQL, or external database setup needed. SQLite creates the database file automatically on first run.
 
 ---
 
